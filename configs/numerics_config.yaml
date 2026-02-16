@@ -1,0 +1,29 @@
+# ==================================
+# Numerical / Solver Configuration
+# ==================================
+# Defines HOW physics is computed, not WHAT it means.
+
+integrator:
+  method: rk4              # rk4 | rk45 | verlet (future)
+  adaptive: false
+  step_size: 10.0          # seconds (used if adaptive=false)
+  max_step: 60.0
+  min_step: 0.1
+
+solver_tolerances:
+  position_km: 1.0e-6
+  velocity_km_s: 1.0e-8
+  angle_rad: 1.0e-3
+  eccentricity: 1.0e-6
+
+iteration_limits:
+  max_root_iterations: 50
+  max_solver_iterations: 10000
+
+convergence:
+  root_finder_tolerance: 1.0e-8
+  energy_drift_tolerance: 1.0e-6
+
+performance:
+  enable_vectorization: true
+  profiling_enabled: false

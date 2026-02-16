@@ -1,0 +1,50 @@
+# ==================================
+# Orbital / Domain Configuration
+# ==================================
+# Defines the PHYSICAL MEANING of the simulation.
+# No solver/integrator settings belong here.
+
+central_body:
+  name: Earth
+  mu: 398600.4418            # km^3 / s^2
+  radius: 6378.137           # km
+  j2: 1.08262668e-3
+  rotation_rate: 7.2921159e-5  # rad/s
+
+time:
+  standard: UTC              # UTC | TAI | TT
+  epoch: "2026-01-01T00:00:00Z"
+  internal_representation: jd_tt   # jd_tt | seconds_since_j2000
+
+reference_frames:
+  inertial: ECI
+  body_fixed: ECEF
+  display_frame: ECI
+
+units:
+  length: km
+  time: s
+  angle_input: deg           # deg | rad
+  angle_internal: rad        # always rad recommended
+
+force_models:
+  two_body: true
+  j2: false
+  atmospheric_drag: false
+  solar_radiation_pressure: false
+
+classification_thresholds:
+  inclination_deg:
+    equatorial_band: 1.0
+    polar_band: 1.0
+
+  eccentricity:
+    circular: 1.0e-3
+    parabolic_tolerance: 1.0e-4
+
+  direction:
+    retrograde_boundary_deg: 90.0
+
+reporting:
+  include_semantic_labels: true
+  include_invariants: true

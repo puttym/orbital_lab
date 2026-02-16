@@ -1,0 +1,31 @@
+# ==============================
+# Main Configuration File
+# ==============================
+# Entry point for simulation configuration.
+# References other config files and defines global behavior.
+
+project:
+  name: orbital_lab
+  version: 0.1.0
+  description: "Orbital mechanics simulation laboratory"
+
+config_files:
+  orbit_config: configs/orbit_config.yaml
+  numerics_config: configs/numerics_config.yaml
+
+logging:
+  level: INFO              # DEBUG | INFO | WARNING | ERROR
+  save_to_file: true
+  log_directory: logs/
+  timestamp_utc: true
+
+output:
+  angle_display: both      # deg | rad | both
+  sampling_interval: 60    # seconds
+  semantic_labels_enabled: true
+  include_units: true
+
+runtime:
+  random_seed: 42
+  strict_mode: true        # Fail fast on invariant violations
+  reproducible: true
